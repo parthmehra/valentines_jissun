@@ -104,6 +104,44 @@ document.addEventListener("DOMContentLoaded", function () {
         btns.style.display = "none";
         wedate.innerText = "We are each other's valentine now. I love you babeee. ❤️";
 
+        const homeBtn = document.createElement("button");
+        homeBtn.innerText = "Back to Home";
+        
+        // 2. Apply CSS Styling directly here
+        Object.assign(homeBtn.style, {
+            position: "fixed",        // Sticks it to the viewport
+            bottom: "30px",           // Distance from the bottom
+            left: "50%",              // Center horizontally
+            transform: "translateX(-50%)", // Perfect centering adjustment
+            padding: "15px 30px",
+            backgroundColor: "#ff4d6d", // Pink color
+            color: "white",
+            border: "none",
+            borderRadius: "30px",
+            fontSize: "15px",
+            fontWeight: "bold",
+            cursor: "pointer",
+            boxShadow: "0px 4px 15px rgba(0,0,0,0.3)", // Nice shadow
+            transition: "all 0.3s ease"
+        });
+
+        // 3. Add Hover Effect using JS events
+        homeBtn.onmouseover = function() {
+            homeBtn.style.backgroundColor = "#ff758f";
+            homeBtn.style.transform = "translateX(-50%) scale(1.1)";
+        };
+        homeBtn.onmouseout = function() {
+            homeBtn.style.backgroundColor = "#ff4d6d";
+            homeBtn.style.transform = "translateX(-50%) scale(1)";
+        };
+
+        // 4. Set functionality
+        homeBtn.onclick = function() {
+            window.location.href = "index.html"; 
+        };
+
+        // 5. Append to BODY (not the wedate container) to force it to the bottom
+        document.body.appendChild(homeBtn);
         // Open index1.html in a new tab
         window.open("index1.html", "_blank");
 
